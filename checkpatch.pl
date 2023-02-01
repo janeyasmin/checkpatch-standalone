@@ -26,14 +26,14 @@ my $quiet = 0;
 my $verbose = 0;
 my %verbose_messages = ();
 my %verbose_emitted = ();
-my $tree = 1;
+my $tree = 0;
 my $chk_signoff = 1;
 my $chk_patch = 1;
 my $tst_only;
 my $emacs = 0;
 my $terse = 0;
 my $showfile = 0;
-my $file = 0;
+my $file = 1;
 my $git = 0;
 my %git_commits = ();
 my $check = 0;
@@ -41,7 +41,7 @@ my $check_orig = 0;
 my $summary = 1;
 my $mailback = 0;
 my $summary_file = 0;
-my $show_types = 0;
+my $show_types = 1;
 my $list_types = 0;
 my $fix = 0;
 my $fix_inplace = 0;
@@ -71,7 +71,7 @@ my $color = "auto";
 my $allow_c99_comments = 1; # Can be overridden by --ignore C99_COMMENT_TOLERANCE
 # git output parsing needs US English output, so first set backtick child process LANGUAGE
 my $git_command ='export LANGUAGE=en_US.UTF-8; git';
-my $tabsize = 8;
+my $tabsize = 4;
 my ${CONFIG_} = "CONFIG_";
 
 sub help {
@@ -320,6 +320,7 @@ GetOptions(
 	'codespell!'	=> \$codespell,
 	'codespellfile=s'	=> \$user_codespellfile,
 	'typedefsfile=s'	=> \$typedefsfile,
+	'docsfile=s'	=> \$docsfile,
 	'color=s'	=> \$color,
 	'no-color'	=> \$color,	#keep old behaviors of -nocolor
 	'nocolor'	=> \$color,	#keep old behaviors of -nocolor
